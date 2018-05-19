@@ -2,34 +2,34 @@
   <div class="main-wrapper">
     <div class="row">
       <div class="col-xs-12">
-        <h1>
-          Welcome to Stock Winner!
-        </h1>
+        <h1> Welcome to Stock Winner! </h1>
         <img id="stock_img" src="assets/img/stock.jpg" alt="">
       </div>
     </div>
+
     <div class="row">
       <div id="infobox" class="col-md-6">
-        <label id="info">All your favourite articles in one place.</label>
+        <label id="info">All your stocks in one place. Check how much you earn!</label>
         <img id="stock_chart_img" src="assets/img/stock_chart.jpg" alt="">
       </div>
+    </div>
 
-      <div id="registrationbox" class="col-md-6">
-        <label class="question">Do you already have an account?</label>
-        <br><br/>
-        <button (click)="toLoginPage()" class="rbbutton">Log in</button>
-        <br><br/>
-        <label class="question">You don't?</label>
-        <br><br/>
-        <button (click)="toRegistrationPage()" class="rbbutton">Register</button>
-      </div>
+    <div id="registrationbox" class="col-md-6">
+      <label class="question">Do you already have an account?</label>
+      <br><br/>
+      <button (click)="toLoginPage()" class="rbbutton">Log in</button>
+      <br><br/>
+      <label class="question">You don't?</label>
+      <br><br/>
+      <button (click)="toRegistrationPage()" class="rbbutton">Register</button>
     </div>
 
     <div class="row" *ngIf="authService.isSignedIn()">
       <div class="col-xs-12">
         You are logged!<br>
         {{hello}}<br>
-        <button (click)="helloWorldRequest()">Hello World btn</button><br>
+        <button (click)="helloWorldRequest()">Hello World btn</button>
+        <br>
         <button (click)="logout()">logout</button>
       </div>
     </div>

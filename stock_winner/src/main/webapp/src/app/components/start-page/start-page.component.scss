@@ -2,10 +2,6 @@
   padding: 100px 15px;
 }
 
-img {
-  width: 100%;
-}
-
 #stock_img {
   max-width: 230px;
 }
@@ -16,12 +12,6 @@ img {
 
 .active:hover {
   background-color: orangered;
-}
-
-h1 {
-  font-size: 38px;
-  font-weight: bold;
-  color: darkslategray;
 }
 
 #infobox {
@@ -38,6 +28,7 @@ h1 {
   border-radius: 8px;
   border: 2px solid lightslategray;
   padding: 15px 15px 30px 15px;
+  margin-top: 20px;
 }
 
 .question {
