@@ -1,3 +1,35 @@
+.navigation {
+  background-color: dodgerblue;
+}
+
+.active {
+  background-color: darkblue;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: dodgerblue;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
 .login-box {
   position:absolute;
   left:50%;
