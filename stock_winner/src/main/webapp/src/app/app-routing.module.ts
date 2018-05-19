@@ -1,6 +1,6 @@
 import { NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginFormComponent} from "./components/login/login-form/login-form.component";
+import {LoginFormComponent} from "./components/login-form/login-form.component";
 import {StartPageComponent} from "./components/start-page/start-page.component";
 import {RegistrationFormComponent} from "./components/registration-form-component/registration-form.component";
 

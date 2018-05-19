@@ -2,42 +2,10 @@
   width: fit-content;
   height: fit-content;
   position: absolute;
-  border-radius: 5%;
+  border-style: solid;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-
-.navigation {
-  background-color: dodgerblue;
-}
-
-.active {
-  background-color: darkblue;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: dodgerblue;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: blue;
-}
-
-li {
-  float: left;
 }
 
 .blocky {
@@ -64,24 +32,4 @@ li {
 
 .ng-invalid:not(form):not(.ng-pristine) {
   box-shadow: 1px 1px 1px 1px #a94442;
-}
-
-.rbbutton {
-  margin-top: 10px;
-  max-width: 250px;
-  width: 100%;
-  height: 40px;
-  border-radius: 8px;
-  background-color: lightslategray;
-  color: white;
-  cursor: pointer;
-}
-
-.rbbutton:hover {
-  margin-top: 10px;
-  height: 40px;
-  border-radius: 8px;
-  background-color: lightgrey;
-  color: darkslategray;
-  border: 2px solid lightslategray;
 }

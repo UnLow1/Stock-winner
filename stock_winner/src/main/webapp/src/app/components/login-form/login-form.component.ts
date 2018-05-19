@@ -1,6 +1,6 @@
-import {Component, NgModule, OnInit} from '@angular/core';
-import {User} from "../../../model/user";
-import {AuthenticationService} from "../../../services/authentication.service";
+import {Component, OnInit} from '@angular/core';
+import {User} from "../../model/user";
+import {AuthenticationService} from "../../services/authentication.service";
 import {Observable} from "rxjs/Observable";
 
 @Component({

@@ -1,0 +1,25 @@
+.login-box {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  border-style: solid;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-header {
+  margin-top: 0;
+  width: available;
+  padding: 15px 8px;
+  background-color: cornflowerblue;
+  border-radius: 4px;
+}
+
+.login-form-styled {
+  padding: 0 3% 3%;
+}
+
+.error-message{
+  color: red;
+}
