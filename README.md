@@ -1,2 +1,2 @@
-# MyPP
-Repozytorium projektu MyPrivatePocket
+# Stock Winner
+Repozytorium projektu Stock Winner
