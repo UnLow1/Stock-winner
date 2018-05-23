@@ -5,7 +5,7 @@
 ### Backend
 ```$ gradle build```
 
-```$ java -jar build/libs/coddlers-0.0.1.jar```
+```$ java -jar build/libs/stockwinner-0.0.1.jar```
 
 Server listen at localhost:8080
 
@@ -24,5 +24,5 @@ Server listen at localhost:4200
 ## Build Fat Jar
 ```$ gradle clean build```
 
-```$ java -jar coddlers-0.0.1.jar```
+```$ java -jar stockwinner-0.0.1.jar```
 
