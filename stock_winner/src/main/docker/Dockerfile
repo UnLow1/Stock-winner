@@ -1,6 +1,6 @@
 FROM library/postgres
 ENV POSTGRES_USER postgres
-ENV POSTGRES_PASSWORD parostatki
-ENV POSTGRES_DB mypp
+ENV POSTGRES_PASSWORD parostatkiemwpieknyrejs
+ENV POSTGRES_DB stockwinner
 
 EXPOSE 5432
