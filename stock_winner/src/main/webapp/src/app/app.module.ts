@@ -36,6 +36,7 @@ import {AddCurrencyComponent} from "./components/add-currency/add-currency.compo
     NavbarComponent,
     SharesFormComponent,
     AddSharesFormComponent,
+    AppComponent,
     ListCurrenciesComponent,
     AddCurrencyComponent
   ],
