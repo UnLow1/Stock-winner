@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginFormComponent} from "./components/login-form/login-form.component";
 import {StartPageComponent} from "./components/start-page/start-page.component";
 import {RegistrationFormComponent} from "./components/registration-form-component/registration-form.component";
+import {ListCurrenciesComponent} from "./components/list-currencies/list-currencies.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/start', pathMatch: 'full' },
   { path: 'start', component: StartPageComponent},
   { path: 'login', component: LoginFormComponent},
-  { path: 'registration', component: RegistrationFormComponent}
+  { path: 'registration', component: RegistrationFormComponent},
+  { path: 'list-currencies', component: ListCurrenciesComponent}
 ];
 
 @NgModule({

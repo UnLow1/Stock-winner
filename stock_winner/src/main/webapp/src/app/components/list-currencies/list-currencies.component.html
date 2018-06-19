@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <table class="table tasks-table">
+      <thead>
+      <tr>
+        <th scope="col">Currency name</th>
+        <th scope="col">Currency rate</th>
+        <th scope="col">Date of lat rate update</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let currency of currencies">
+        <td>{{currency.name}}</td>
+        <td>{{currency.rate}}</td>
+        <td>{{currency.lastUpdate}}</td>
+        <td>
+          <button class="btn btn-secondary float-right" [routerLink]="['/update']">Update</button>
+        </td>
+        <td>
+          <button class="btn btn-secondary float-right" [routerLink]="['history']">Last month</button>
+        </td>
+        <td>
+          <button class="btn btn-secondary float-right" [routerLink]="['/delete']">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -9,6 +9,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { AuthenticationService } from './services/authentication.service';
 import { StartPageComponent } from './components/start-page/start-page.component';
 import {TokenInterceptor} from "./services/token-interceptor";
+import {ListCurrenciesComponent} from "./components/list-currencies/list-currencies.component";
+import {CurrencyService} from "./services/currency.service";
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import {TokenInterceptor} from "./services/token-interceptor";
     LoginFormComponent,
     StartPageComponent,
     RegistrationFormComponent,
-    AppComponent
+    AppComponent,
+    ListCurrenciesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import {TokenInterceptor} from "./services/token-interceptor";
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    CurrencyService
   ],
   bootstrap: [AppComponent]
 })

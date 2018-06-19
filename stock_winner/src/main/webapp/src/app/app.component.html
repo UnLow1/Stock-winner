@@ -16,5 +16,10 @@
       <a class="nav-link" [routerLink]="['registration']">Register</a>
     </li>
   </ul>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" [routerLink]="['list-currencies']">List of currencies</a>
+    </li>
+  </ul>
 </nav>
 <router-outlet></router-outlet>
