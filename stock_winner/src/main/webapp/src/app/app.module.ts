@@ -10,6 +10,9 @@ import {LoginFormComponent} from './components/login-form/login-form.component';
 import {AuthenticationService} from './services/authentication.service';
 import {StartPageComponent} from './components/start-page/start-page.component';
 import {TokenInterceptor} from "./services/token-interceptor";
+import {ListCurrenciesComponent} from "./components/list-currencies/list-currencies.component";
+import {CurrencyService} from "./services/currency.service";
+
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {SharesFormComponent} from "./components/shares-form/shares-form.component";
