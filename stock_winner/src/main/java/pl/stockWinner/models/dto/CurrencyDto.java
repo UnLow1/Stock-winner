@@ -20,4 +20,12 @@ public class CurrencyDto {
 
     @NotNull
     private Timestamp lastUpdate;
+
+    public CurrencyDto(String name, double rate, Timestamp lastUpdate) {
+        this.name = name;
+        this.rate = rate;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public CurrencyDto() {}
 }

@@ -11,6 +11,7 @@ import { StartPageComponent } from './components/start-page/start-page.component
 import {TokenInterceptor} from "./services/token-interceptor";
 import {ListCurrenciesComponent} from "./components/list-currencies/list-currencies.component";
 import {CurrencyService} from "./services/currency.service";
+import {AddCurrencyComponent} from "./components/add-currency/add-currency.component";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {CurrencyService} from "./services/currency.service";
     StartPageComponent,
     RegistrationFormComponent,
     AppComponent,
-    ListCurrenciesComponent
+    ListCurrenciesComponent,
+    AddCurrencyComponent
   ],
   imports: [
     BrowserModule,

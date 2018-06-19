@@ -21,4 +21,7 @@ export class CurrencyService {
       );
   }
 
+  public addCurrency(currencyName: String): Observable<any>{
+    return this.http.post(`api/currencies?currencyName=${currencyName}`, null);
+  }
 }

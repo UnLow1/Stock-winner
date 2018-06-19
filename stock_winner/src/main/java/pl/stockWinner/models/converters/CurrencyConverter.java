@@ -23,7 +23,8 @@ public class CurrencyConverter implements BaseConverter<Currency, CurrencyDto> {
     public Currency convertFromDto(CurrencyDto dto) {
         Currency currency = new Currency();
 
-        currency.setId(dto.getId());
+        // TODO is ID needed
+//        currency.setId(dto.getId());
         currency.setName(dto.getName());
         currency.setRate(dto.getRate());
         currency.setLastUpdate(dto.getLastUpdate());
