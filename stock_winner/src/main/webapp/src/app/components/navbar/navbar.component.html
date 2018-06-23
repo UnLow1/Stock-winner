@@ -18,7 +18,7 @@
           <a class="nav-link h-100" routerLink="/add_shares">Shares</a>
         </li>
         <li *ngIf="authService.isSignedIn()" class="nav-item" routerLinkActive="active">
-          <a class="nav-link h-100" routerLink="/currencies">Currency</a>
+          <a class="nav-link h-100" routerLink="/currencies">Currencies</a>
         </li>
         <li *ngIf="!authService.isSignedIn()" class="nav-item" routerLinkActive="active">
           <a class="nav-link h-100" routerLink="/login">Login</a>
