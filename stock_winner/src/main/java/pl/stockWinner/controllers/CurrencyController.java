@@ -17,6 +17,13 @@ public class CurrencyController {
     @Autowired
     private CurrencyService currencyService;
 
+
+    @GetMapping(value = "/all")
+    public ResponseEntity<Collection<CurrencyDto>> addAllCurrencies() throws IOException {
+        return ResponseEntity.ok(currencyService.addAllCurrencies());
+
+    }
+
     @GetMapping
     public ResponseEntity<Collection<CurrencyDto>> getCurrencies() {
         return ResponseEntity.ok(currencyService.getCurrencies());
@@ -35,7 +42,6 @@ public class CurrencyController {
 
         return ResponseEntity.created(URI.create("/list-currencies")).build();
     }
-
 
 
 }

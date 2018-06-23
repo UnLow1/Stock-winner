@@ -16,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,25 @@ public class CurrencyService {
         return currencyConverter.convertFromEntities(currencyList);
     }
 
+    // Problem is that API give us ban after 100 requests in hour
+    public Collection<CurrencyDto> addAllCurrencies() throws IOException {
+        Iterator<String> currenciesNames = getCurrenciesNames();
+        currenciesNames.forEachRemaining(name -> {
+            try {
+                double rate = getRateForCurrency(name);
+
+                CurrencyDto currencyDto = new CurrencyDto(name, rate, new Timestamp(System.currentTimeMillis()));
+
+                Currency currency = currencyConverter.convertFromDto(currencyDto);
+                currencyRepository.save(currency);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        return null;
+    }
+
     public void addCurrency(String name) throws IOException {
         double rate = getRateForCurrency(name);
 
@@ -53,6 +73,13 @@ public class CurrencyService {
         currencyToDelete.ifPresent(currency -> currencyRepository.delete(currency));
     }
 
+    private Iterator<String> getCurrenciesNames() throws IOException {
+        JSONObject response;
+        response = readResponseFromApi("https://free.currencyconverterapi.com/api/v5/currencies").getJSONObject("results");
+
+        return response.keys();
+    }
+
     private double getRateForCurrency(String name) throws JSONException, IOException {
         JSONObject response;
         response = readResponseFromApi(BASE_URL + name + COMPACT);
@@ -62,6 +89,7 @@ public class CurrencyService {
 
         return response.getDouble(BASE_CURRENCY + "_" + name);
     }
+
     private JSONObject readResponseFromApi(String url) throws IOException, JSONException {
 
         URL obj = new URL(url);

@@ -24,5 +24,8 @@ export class ListCurrenciesComponent implements OnInit {
       this.currencies = this.currencyService.getCurrencies());
   }
 
+  getAllCurrencies() {
+    this.currencies = this.currencyService.getAllCurrencies()
+  }
 
 }
