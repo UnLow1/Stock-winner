@@ -1,0 +1,14 @@
+<div class="content-container">
+  <h2>Add currency</h2>
+
+  <!--<div class="line"></div>-->
+  <!--<br>-->
+
+  <div class="form-group">
+    <label for="currency-name">Currency name</label>
+    <input class="form-control" [(ngModel)]="currencyName" id="currency-name" name="name"
+           type="text" placeholder="Currency name (PLN, USD, EUR)">
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Add" (click)="addCurrency()">
+</div>

@@ -10,15 +10,19 @@ import {LoginFormComponent} from './components/login-form/login-form.component';
 import {AuthenticationService} from './services/authentication.service';
 import {StartPageComponent} from './components/start-page/start-page.component';
 import {TokenInterceptor} from "./services/token-interceptor";
+
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {SharesFormComponent} from "./components/shares-form/shares-form.component";
 import {AddSharesFormComponent} from "./components/add-shares-form/add-shares-form.component";
-import {CurrenciesFormComponent} from "./components/currencies-form/currencies-form.component";
 import {CompanyService} from "./services/company.service"
 import {DividendsService} from "./services/dividends.service"
 import {PriceService} from "./services/price.service"
 import {SharesService} from "./services/shares.service";
+import {ListCurrenciesComponent} from "./components/list-currencies/list-currencies.component";
+import {CurrencyService} from "./services/currency.service";
+import {AddCurrencyComponent} from "./components/add-currency/add-currency.component";
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import {SharesService} from "./services/shares.service";
     NavbarComponent,
     SharesFormComponent,
     AddSharesFormComponent,
-    CurrenciesFormComponent
+    AppComponent,
+    ListCurrenciesComponent,
+    AddCurrencyComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,8 @@ import {SharesService} from "./services/shares.service";
     CompanyService,
     DividendsService,
     PriceService,
-    SharesService
+    SharesService,
+    CurrencyService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <table class="table tasks-table">
+      <thead>
+      <tr>
+        <th scope="col">Currency name</th>
+        <th scope="col">Currency rate</th>
+        <th scope="col">Date of lat rate update</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let currency of currencies | async">
+        <td>{{currency.name}}</td>
+        <td>{{currency.rate}}</td>
+        <td>{{currency.lastUpdate}}</td>
+        <td>
+          <button class="btn btn-success float-right" [routerLink]="['/update']">Update</button>
+        </td>
+        <td>
+          <button class="btn btn-secondary float-right" [routerLink]="['/history']">Last month</button>
+        </td>
+        <td>
+          <button class="btn btn-danger float-right" (click)="delete(currency)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="col-3">
+      <button class="btn btn-secondary float-right" [routerLink]="['/add-currency']">Add new currency</button>
+    </div>
+      <button class="btn btn-secondary float-right" (click)="getAllCurrencies()">Add all available currencies</button>
+  </div>
+</div>
