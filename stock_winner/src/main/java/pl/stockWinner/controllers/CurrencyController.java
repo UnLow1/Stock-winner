@@ -33,14 +33,14 @@ public class CurrencyController {
     public ResponseEntity<Void> addCurrency(@RequestParam(value = "currencyName") String name) throws IOException {
         currencyService.addCurrency(name);
 
-        return ResponseEntity.created(URI.create("/list-currencies")).build();
+        return ResponseEntity.created(URI.create("/currencies")).build();
     }
 
     @DeleteMapping(params = {"currencyName"})
     public ResponseEntity<Void> deleteCurrency(@RequestParam(value = "currencyName") String name) {
         currencyService.deleteCurrency(name);
 
-        return ResponseEntity.created(URI.create("/list-currencies")).build();
+        return ResponseEntity.created(URI.create("/currencies")).build();
     }
 
 
