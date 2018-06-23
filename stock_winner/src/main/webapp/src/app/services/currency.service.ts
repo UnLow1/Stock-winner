@@ -15,13 +15,14 @@ export class CurrencyService {
   constructor(private http: HttpClient) { }
 
   public getCurrencies(): Observable<Currency[]> {
-    return this.http.get<Currency[]>('api/currencies')
-      .pipe(
-        map((objArray: any[]) => objArray.map(obj => Currency.fromJSON(obj)))
-      );
+    return this.http.get('api/currencies');
   }
 
   public addCurrency(currencyName: String): Observable<any>{
     return this.http.post(`api/currencies?currencyName=${currencyName}`, null);
+  }
+
+  public deleteCurrency(currency: Currency) : Observable<any> {
+    return this.http.delete(`api/currencies?currencyName=${currency.name}`);
   }
 }

@@ -12,24 +12,26 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let currency of currencies">
+      <tr *ngFor="let currency of currencies | async">
         <td>{{currency.name}}</td>
         <td>{{currency.rate}}</td>
         <td>{{currency.lastUpdate}}</td>
         <td>
-          <button class="btn btn-secondary float-right" [routerLink]="['/update']">Update</button>
+          <button class="btn btn-success float-right" [routerLink]="['/update']">Update</button>
         </td>
         <td>
-          <button class="btn btn-secondary float-right" [routerLink]="['history']">Last month</button>
+          <button class="btn btn-secondary float-right" [routerLink]="['/history']">Last month</button>
         </td>
         <td>
-          <button class="btn btn-secondary float-right" [routerLink]="['/delete']">Delete</button>
+          <button class="btn btn-danger float-right" (click)="delete(currency)">Delete</button>
         </td>
       </tr>
       </tbody>
     </table>
 
-    <button class="btn btn-secondary float-right" [routerLink]="['/add-currency']">Add new currency</button>
-
+    <div class="col-3">
+      <button class="btn btn-secondary float-right" [routerLink]="['/add-currency']">Add new currency</button>
+    </div>
+      <button class="btn btn-secondary float-right">Add all available currencies</button>
   </div>
 </div>

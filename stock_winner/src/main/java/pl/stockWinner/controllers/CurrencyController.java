@@ -29,5 +29,13 @@ public class CurrencyController {
         return ResponseEntity.created(URI.create("/list-currencies")).build();
     }
 
+    @DeleteMapping(params = {"currencyName"})
+    public ResponseEntity<Void> deleteCurrency(@RequestParam(value = "currencyName") String name) {
+        currencyService.deleteCurrency(name);
+
+        return ResponseEntity.created(URI.create("/list-currencies")).build();
+    }
+
+
 
 }

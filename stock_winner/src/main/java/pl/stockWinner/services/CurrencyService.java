@@ -17,6 +17,7 @@ import java.net.URL;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CurrencyService {
@@ -44,6 +45,12 @@ public class CurrencyService {
 
         Currency currency = currencyConverter.convertFromDto(currencyDto);
         currencyRepository.save(currency);
+    }
+
+    public void deleteCurrency(String name) {
+        Optional<Currency> currencyToDelete = currencyRepository.findByName(name);
+
+        currencyToDelete.ifPresent(currency -> currencyRepository.delete(currency));
     }
 
     private double getRateForCurrency(String name) throws JSONException, IOException {
