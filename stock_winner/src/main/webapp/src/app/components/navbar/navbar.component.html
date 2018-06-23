@@ -1,0 +1,38 @@
+<nav class="navigation navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-left" routerLink="">
+      <img class="img-navbar" src="../../../assets/img/stock.png"/>
+    </a>
+    <a class="navbar-brand" routerLink="">Stock Winner</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse h-100" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li *ngIf="authService.isSignedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link h-100" routerLink="/my_shares">My wallet</a>
+        </li>
+        <li *ngIf="authService.isSignedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link h-100" routerLink="/add_shares">Shares</a>
+        </li>
+        <li *ngIf="authService.isSignedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link h-100" routerLink="/currencies">Currency</a>
+        </li>
+        <li *ngIf="!authService.isSignedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link h-100" routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="!authService.isSignedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link h-100" routerLink="/registration">Register</a>
+        </li>
+        <li *ngIf="!authService.isSignedIn()" class="nav-item" routerLinkActive="active">
+          <a class="nav-link h-100" routerLink="/about">About us</a>
+        </li>
+        <li *ngIf="authService.isSignedIn()" class="nav-item">
+          <a class="nav-link h-100" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

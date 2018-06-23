@@ -1,0 +1,110 @@
+<div class="stockwinner-container container">
+  <div class="row p-4">
+    <div class="col-md-8">
+      <form #f="ngForm" class="p-2">
+        <div class="row">
+          <div class="input-group mb-3 col-md-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-ticker">Ticker</span>
+            </div>
+
+            <input ngModel name="ticker" type="text" class="form-control w-50" aria-label="Default"
+                   aria-describedby="inputGroup-ticker">
+          </div>
+
+          <div class="input-group mb-3 col-md-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-divident-range">Divident Range</span>
+            </div>
+            <select ngModel name="country" class="custom-select d-block" required aria-label="Default"
+                    aria-describedby="inputGroup-divident-range" >
+              <option>Five years</option>
+              <option>Two years</option>
+              <option>One year</option>
+              <option>Six months</option>
+              <option>Three months</option>
+              <option>One month</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid range.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="exchange" class="col-sm-3 col-form-label">Exchange</label>
+          <div class="col-sm-9">
+            <input type="text" readonly class="form-control-plaintext" id="exchange" value="{{exchange}}">
+          </div>
+
+          <label for="companyName" class="col-sm-3 col-form-label">Company Name</label>
+          <div class="col-sm-9">
+            <input type="text" readonly class="form-control-plaintext" id="companyName" value="{{companyName}}">
+          </div>
+
+          <label for="industry" class="col-sm-3 col-form-label">Industry</label>
+          <div class="col-sm-9">
+            <input type="text" readonly class="form-control-plaintext" id="industry" value="{{industry}}">
+          </div>
+
+          <label for="website" class="col-sm-3 col-form-label">Website</label>
+          <div class="col-sm-9">
+            <input type="text" readonly class="form-control-plaintext" id="website" value="{{website}}">
+          </div>
+
+          <label for="description" class="col-sm-3 col-form-label">Description</label>
+          <div class="col-sm-9">
+            <textarea class="form-control-plaintext" type="text" id="description" rows="3" value="{{description}}"
+                      readonly required></textarea>
+          </div>
+
+          <label for="CEO" class="col-sm-3 col-form-label">CEO</label>
+          <div class="col-sm-9">
+            <input type="text" readonly class="form-control-plaintext" id="CEO" value="{{CEO}}">
+          </div>
+
+          <label for="sector" class="col-sm-3 col-form-label">Sector</label>
+          <div class="col-sm-9">
+            <input type="text" readonly class="form-control-plaintext" id="sector" value="{{sector}}">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group mb-3 col-md-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-volume">Volume</span>
+            </div>
+
+            <input ngModel name="volume" type="text" class="form-control w-50" aria-label="Default"
+                   aria-describedby="inputGroup-volume" [value]="volume">
+          </div>
+
+          <div class="input-group mb-3 col-md-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-price">Price</span>
+            </div>
+
+            <input ngModel name="price" type="text" class="form-control w-50" aria-label="Default"
+                   aria-describedby="inputGroup-price" [value]="price">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [disabled]="!f.valid" class="rbbutton" (click)="downloadData(f)">Download data</button>
+
+      <button type="button" [disabled]="!f.valid" class="addbutton" (click)="addShares(f)">Add to my wallet</button>
+    </div>
+    <div class="col-md-2">
+      <!--<h4 class="text-center">Dividends</h4>-->
+      <!--<h3 *ngIf="dividends.length == 0" class="text-center">No dividends</h3>-->
+      <div>
+        <div *ngFor="let dividend of dividends">
+          <span class="border-top">Record Date: {{dividend.recordDate}}</span><br>
+          <span>Payent Date: {{dividend.paymentDate}}</span><br>
+          <span>Amount: {{dividend.amount}}$</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

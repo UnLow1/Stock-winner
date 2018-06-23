@@ -12,7 +12,7 @@ export class StartPageComponent implements OnInit {
   private hello: string = '';
 
   constructor(private _router: Router,
-              private authService: AuthenticationService,
+              public authService: AuthenticationService,
               private http: HttpClient) { }
 
   ngOnInit() {
@@ -24,14 +24,6 @@ export class StartPageComponent implements OnInit {
 
   public toRegistrationPage() {
     this._router.navigate(['/registration']);
-  }
-
-  helloWorldRequest(): void {
-    this.http.get('api/hello-world').subscribe(
-      (response: any) => {
-        this.hello=response.text;
-      }
-    )
   }
 
   logout(): void {

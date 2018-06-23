@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 align-content-center p-5 text-center">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+          <div class="row text-center">
+            <div class="col-md-2">
+              <strong>Ticker</strong>
+            </div>
+            <div class="col-md-2">
+              <strong>Volume</strong>
+            </div>
+            <div class="col-md-3">
+              <strong>Base Price</strong>
+            </div>
+            <div class="col-md-2">
+              <strong>Current Price</strong>
+            </div>
+            <div class="col-md-3">
+              <strong>Value</strong>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="list-group">
+        <li *ngFor="let share of shares" class="list-group-item list-group-item-light">
+          <div class="row text-center">
+            <div class="col-md-2">
+              {{share.ticker}}
+            </div>
+            <div class="col-md-2">
+              {{share.volume}}
+            </div>
+            <div class="col-md-3">
+              {{share.price}}$
+            </div>
+            <div class="col-md-2">
+              {{share.price}}$
+            </div>
+            <div class="col-md-3">
+              {{share.volume * share.price}}$
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

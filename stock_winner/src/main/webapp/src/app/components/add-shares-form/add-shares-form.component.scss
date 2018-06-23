@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+
+.horizontal-collapse {
+  height: 70px;
+}
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+
+.addbutton {
+  margin-top: 10px;
+  max-width: 250px;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  background-color: $green-eucalyptus;
+  color: white;
+  cursor: pointer;
+}
+
+.addbutton:hover {
+  margin-top: 10px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: $green-salem;
+  //color: darkslategray;
+  //border: 2px solid $green-salem;
+}

@@ -19,8 +19,8 @@
   margin-top: 0;
   width: available;
   padding: 15px 8px;
-  background-color: cornflowerblue;
-  border-radius: 4px;
+  //background-color: cornflowerblue;
+  border-radius: 8px;
 }
 
 .registration-form-styled {
@@ -33,4 +33,12 @@
 
 .ng-invalid:not(form):not(.ng-pristine) {
   box-shadow: 1px 1px 1px 1px #a94442;
+}
+
+#registrationbox {
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid lightslategray;
+  padding: 15px 15px 30px 15px;
+  margin-top: 20px;
 }
