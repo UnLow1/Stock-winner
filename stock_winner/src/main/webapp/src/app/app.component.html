@@ -1,25 +1,2 @@
-<!-- Fixed navbar -->
-<nav class="navbar navbar-collapse navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="/">Stock Winner</a>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item" [routerLinkActive]="['active']">
-      <a class="nav-link" [routerLink]="['start']">Start</a>
-    </li>
-  </ul>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item" [routerLinkActive]="['active']">
-      <a class="nav-link" [routerLink]="['login']">Log in</a>
-    </li>
-  </ul>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item" [routerLinkActive]="['active']">
-      <a class="nav-link" [routerLink]="['registration']">Register</a>
-    </li>
-  </ul>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item" [routerLinkActive]="['active']">
-      <a class="nav-link" [routerLink]="['list-currencies']">List of currencies</a>
-    </li>
-  </ul>
-</nav>
+<app-navbar></app-navbar>
 <router-outlet></router-outlet>
