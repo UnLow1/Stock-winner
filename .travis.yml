@@ -5,6 +5,6 @@ deploy:
  provider: heroku
  api-key:
   secure: f07de77b-58f7-47e7-9895-f4ee8a4595f7
-app: Stock-winner
+ app: stock-winner
 on:
     repo: UnLow1/stock-winner
