@@ -7,7 +7,7 @@ services:
   
 before_install:
 - docker build -t postgres_stockwinner .
-- docker run --name stockwinner-postgresql -d -p 5432:5432 postgres_stockwinner
+- docker run --name stockwinner-postgresql -d -p 127.0.0.1:80:5432 postgres_stockwinner
 - docker ps -a
 - docker start stockwinner-postgresql
 
