@@ -36,14 +36,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .cors().and().csrf().disable().authorizeRequests()
-            .antMatchers("/api/auth/**").permitAll()
-            .anyRequest().authenticated()
-            .and()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .cors().and().csrf().disable().authorizeRequests()
+                .antMatchers("/index.html", "/", "/api/auth/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http
-            .addFilterBefore(new JWTAuthorizationFilter(authenticationManager(), tokenUtils),  UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JWTAuthorizationFilter(authenticationManager(), tokenUtils),  UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
@@ -61,10 +61,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(org.springframework.security.config.annotation.web.builders.WebSecurity web) throws Exception {
-        web.ignoring()
-                .antMatchers(HttpMethod.OPTIONS, "/**")
-                .antMatchers("/**/*.{js,html}")
-                .antMatchers("/h2-console/**");
+            web.ignoring()
+                    .antMatchers(HttpMethod.OPTIONS, "/**")
+                    .antMatchers("/**/*.{js,html}")
+                    .antMatchers("/h2-console/**");
     }
 
     @Bean
