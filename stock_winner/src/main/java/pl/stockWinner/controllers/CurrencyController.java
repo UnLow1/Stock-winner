@@ -20,8 +20,9 @@ public class CurrencyController {
 
     @GetMapping(value = "/all")
     public ResponseEntity<Collection<CurrencyDto>> addAllCurrencies() throws IOException {
-        return ResponseEntity.ok(currencyService.addAllCurrencies());
+        currencyService.addAllCurrencies();
 
+        return ResponseEntity.ok(currencyService.getCurrencies());
     }
 
     @GetMapping
@@ -30,24 +31,24 @@ public class CurrencyController {
     }
 
     @PostMapping(params = {"currencyName"})
-    public ResponseEntity<Void> addCurrency(@RequestParam(value = "currencyName") String name) throws IOException {
+    public ResponseEntity<Collection<CurrencyDto>> addCurrency(@RequestParam(value = "currencyName") String name) throws IOException {
         currencyService.addCurrency(name);
 
-        return ResponseEntity.created(URI.create("/currencies")).build();
+        return ResponseEntity.ok(currencyService.getCurrencies());
     }
 
     @DeleteMapping(params = {"currencyName"})
-    public ResponseEntity<Void> deleteCurrency(@RequestParam(value = "currencyName") String name) {
+    public ResponseEntity<Collection<CurrencyDto>> deleteCurrency(@RequestParam(value = "currencyName") String name) {
         currencyService.deleteCurrency(name);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(currencyService.getCurrencies());
     }
 
     @PutMapping
-    public ResponseEntity<Void> updateCurrency(@RequestBody String name) throws IOException {
+    public ResponseEntity<Collection<CurrencyDto>> updateCurrency(@RequestBody String name) throws IOException {
         currencyService.updateCurrency(name);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(currencyService.getCurrencies());
     }
 
 }
