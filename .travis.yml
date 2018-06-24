@@ -1,16 +1,15 @@
 language: java
-# install:
-# - cd stock_winner/
-# - chmod +x gradlew
-# - gradle assemble
-# before_
-deploy:
+install:
 - cd stock_winner/
 - chmod +x gradlew
 - gradle assemble
-  provider: heroku
-  api_key:
-    secure: f07de77b-58f7-47e7-9895-f4ee8a4595f7
-  app: stock-winner
-  on:
-    repo: UnLow1/Stock-winner
+# deploy:
+# - cd stock_winner/
+# - chmod +x gradlew
+# - gradle assemble
+#   provider: heroku
+#   api_key:
+#     secure: f07de77b-58f7-47e7-9895-f4ee8a4595f7
+#   app: stock-winner
+#   on:
+#     repo: UnLow1/Stock-winner
