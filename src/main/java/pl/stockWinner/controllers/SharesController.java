@@ -17,7 +17,6 @@ import pl.stockWinner.repositories.SharesRepository;
 import pl.stockWinner.repositories.UserDataRepository;
 import pl.stockWinner.services.SharesPersonalService;
 
-
 @RestController
 @RequestMapping(path = "/api/shares")
 @Transactional

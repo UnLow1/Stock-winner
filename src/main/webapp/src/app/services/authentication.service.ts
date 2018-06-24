@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthenticationService {
 
-  baseUrl: string = 'http://localhost:8080';
+  baseUrl: string = 'http://stock-winner.herokuapp.com:8080';
 
   constructor(private _router: Router,
               private http: HttpClient) {

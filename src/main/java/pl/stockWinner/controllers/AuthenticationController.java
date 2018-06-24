@@ -65,5 +65,4 @@ public class AuthenticationController {
     public ResponseEntity<?> noSuchElementException(ConstraintViolationException ex) {
         return new ResponseEntity<>(new ErrorInfoDto(ex.getMessage()), HttpStatus.BAD_REQUEST);
     }
-
 }

@@ -22,6 +22,7 @@ import {SharesService} from "./services/shares.service";
 import {ListCurrenciesComponent} from "./components/list-currencies/list-currencies.component";
 import {CurrencyService} from "./services/currency.service";
 import {AddCurrencyComponent} from "./components/add-currency/add-currency.component";
+import {RouterModule, ROUTES} from "@angular/router";
 
 
 @NgModule({
@@ -59,5 +60,7 @@ import {AddCurrencyComponent} from "./components/add-currency/add-currency.compo
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
+
