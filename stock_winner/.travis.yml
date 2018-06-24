@@ -1,6 +1,8 @@
 language: java
+before_install:
+  cd stock_winner/
 install:
-- gradle build
+- gradle clean build
 deploy:
   provider: heroku
   api_key:
