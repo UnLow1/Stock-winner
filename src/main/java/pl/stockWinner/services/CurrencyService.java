@@ -1,6 +1,5 @@
 package pl.stockWinner.services;
 
-import javafx.util.Pair;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CurrencyService {
@@ -51,10 +53,10 @@ public class CurrencyService {
                 currencies[1] = name;
             else {
                 try {
-                    Pair<Double, Double> rates = getRatesForCurrencies(currencies[0], currencies[1]);
+                    double[] rates = getRatesForCurrencies(currencies[0], currencies[1]);
 
-                    CurrencyDto currencyDto1 = new CurrencyDto(currencies[0], rates.getKey(), new Timestamp(System.currentTimeMillis()));
-                    CurrencyDto currencyDto2 = new CurrencyDto(currencies[1], rates.getValue(), new Timestamp(System.currentTimeMillis()));
+                    CurrencyDto currencyDto1 = new CurrencyDto(currencies[0], rates[0], new Timestamp(System.currentTimeMillis()));
+                    CurrencyDto currencyDto2 = new CurrencyDto(currencies[1], rates[1], new Timestamp(System.currentTimeMillis()));
 
                     Currency currency1 = currencyConverter.convertFromDto(currencyDto1);
                     Currency currency2 = currencyConverter.convertFromDto(currencyDto2);
@@ -105,14 +107,14 @@ public class CurrencyService {
         return response.keys();
     }
 
-    private Pair<Double, Double> getRatesForCurrencies(String name1, String name2) throws JSONException, IOException {
+    private double[] getRatesForCurrencies(String name1, String name2) throws JSONException, IOException {
         JSONObject response;
         response = readResponseFromApi(BASE_URL + CONVERT + name1 + "," + BASE_CURRENCY + "_" + name2 + COMPACT);
 
         if (response.length() != 2)
             throw new RuntimeException("Currency " + name1 + " or currency " + name2 + " is not available");
 
-        return new Pair<>(response.getDouble(BASE_CURRENCY + "_" + name1), response.getDouble(BASE_CURRENCY + "_" + name2));
+        return new double[]{response.getDouble(BASE_CURRENCY + "_" + name1), response.getDouble(BASE_CURRENCY + "_" + name2)};
     }
 
     private double getRateForCurrency(String name) throws JSONException, IOException {
