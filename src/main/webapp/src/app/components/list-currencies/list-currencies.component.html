@@ -6,6 +6,7 @@
         <th scope="col">Currency name</th>
         <th scope="col">Currency rate</th>
         <th scope="col">Date of lat rate update</th>
+        <th scope="col">Amount to buy</th>
         <th scope="col">&nbsp;</th>
         <th scope="col">&nbsp;</th>
         <th scope="col">&nbsp;</th>
@@ -17,10 +18,14 @@
         <td>{{currency.rate}}</td>
         <td>{{currency.lastUpdate | date: 'dd-MM-yyyy hh:mm:ss' }}</td>
         <td>
-          <button class="btn btn-success float-right" (click)="update(currency)">Update</button>
+          <!--<input formControlName="amount" type="number" class="form-control" id="amount" value="0">-->
+          <input #amount type="number" id="amount" value="0"/>
         </td>
         <td>
-          <button class="btn btn-secondary float-right" [routerLink]="['/history']">Last month</button>
+          <button class="btn btn-secondary float-right" (click)="addToWallet(currency, amount.value)">Add to my wallet</button>
+        </td>
+        <td>
+          <button class="btn btn-success float-right" (click)="update(currency)">Update</button>
         </td>
         <td>
           <button class="btn btn-danger float-right" (click)="delete(currency)">Delete</button>
@@ -32,6 +37,6 @@
     <div class="col-3">
       <button class="btn btn-secondary float-right" [routerLink]="['/add-currency']">Add new currency</button>
     </div>
-      <button class="btn btn-secondary float-right" (click)="getAllCurrencies()">Add all available currencies</button>
+    <button class="btn btn-secondary float-right" (click)="getAllCurrencies()">Add all available currencies</button>
   </div>
 </div>

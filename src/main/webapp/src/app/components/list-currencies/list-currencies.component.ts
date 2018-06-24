@@ -15,7 +15,7 @@ export class ListCurrenciesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currencies = this.currencyService.getCurrencies()
+    this.currencies = this.currencyService.getCurrencies();
   }
 
   delete(currency: Currency) {
@@ -32,6 +32,11 @@ export class ListCurrenciesComponent implements OnInit {
 
   getAllCurrencies() {
     this.currencies = this.currencyService.getAllCurrencies()
+  }
+
+  addToWallet(currency: Currency, amount: string) {
+    console.log(`list-currencies-component.ts    currency = ${currency.name}, amount = ${amount}`);
+    this.currencyService.addToWallet(currency, amount).subscribe()
   }
 
 }

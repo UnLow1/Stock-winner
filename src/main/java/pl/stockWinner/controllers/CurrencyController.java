@@ -7,7 +7,6 @@ import pl.stockWinner.models.dto.CurrencyDto;
 import pl.stockWinner.services.CurrencyService;
 
 import java.io.IOException;
-import java.net.URI;
 import java.util.Collection;
 
 @RestController
@@ -28,6 +27,14 @@ public class CurrencyController {
     @GetMapping
     public ResponseEntity<Collection<CurrencyDto>> getCurrencies() {
         return ResponseEntity.ok(currencyService.getCurrencies());
+    }
+
+    @PostMapping(params = {"currencyName", "amount"})
+    public ResponseEntity<Void> addToWallet(@RequestParam(value = "currencyName") String name,
+                                            @RequestParam(value = "amount") int amount) {
+        System.out.println("Name = " + name + " amount = " + amount);
+
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping(params = {"currencyName"})
