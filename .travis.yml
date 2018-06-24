@@ -1,5 +1,9 @@
+install: gradle wrapper --gradle-version 4.2
 language: java
-jdk: oraclejdk8
-before_install:
-  - cd stock_winner
-  - chmod +x gradlew
+jdk:
+ - oraclejdk8
+deploy:
+ provider: heroku
+ api-key:
+  secure: f07de77b-58f7-47e7-9895-f4ee8a4595f7
+app: Stock-winner
