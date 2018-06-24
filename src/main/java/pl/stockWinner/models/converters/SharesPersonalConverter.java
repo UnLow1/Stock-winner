@@ -30,6 +30,7 @@ public class SharesPersonalConverter implements BaseConverter<SharesPersonalEnti
                 .setPrice(sharesDTO.getPrice())
                 .setDate(sharesDTO.getDate());
 
+        // TODO is it correct?
         return new SharesPersonalEntity();
     }
 

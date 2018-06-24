@@ -3,6 +3,7 @@ package pl.stockWinner.models.dto;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+// TODO use lombok
 public class CompanyDTO {
     private Long id;
 

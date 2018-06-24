@@ -2,8 +2,13 @@ package pl.stockWinner.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import pl.stockWinner.models.converters.CurrencyConverter;
 import pl.stockWinner.models.dto.CurrencyDto;
+import pl.stockWinner.models.entity.UserEntity;
+import pl.stockWinner.repositories.UserDataRepository;
+import pl.stockWinner.services.CurrencyPersonalService;
 import pl.stockWinner.services.CurrencyService;
 
 import java.io.IOException;
@@ -16,6 +21,14 @@ public class CurrencyController {
     @Autowired
     private CurrencyService currencyService;
 
+    @Autowired
+    private CurrencyPersonalService currencyPersonalService;
+
+    @Autowired
+    private UserDataRepository userDataRepository;
+
+    @Autowired
+    private CurrencyConverter currencyConverter;
 
     @GetMapping(value = "/all")
     public ResponseEntity<Collection<CurrencyDto>> addAllCurrencies() throws IOException {
@@ -32,7 +45,8 @@ public class CurrencyController {
     @PostMapping(params = {"currencyName", "amount"})
     public ResponseEntity<Void> addToWallet(@RequestParam(value = "currencyName") String name,
                                             @RequestParam(value = "amount") int amount) {
-        System.out.println("Name = " + name + " amount = " + amount);
+
+        currencyPersonalService.create(currencyService.getCurrency(name), amount, getUserEntity());
 
         return ResponseEntity.ok().build();
     }
@@ -58,4 +72,8 @@ public class CurrencyController {
         return ResponseEntity.ok(currencyService.getCurrencies());
     }
 
+    private UserEntity getUserEntity() {
+        String userMail = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return userDataRepository.findFirstByUserMail(userMail);
+    }
 }

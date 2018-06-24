@@ -2,6 +2,7 @@ package pl.stockWinner.models.entity;
 
 import javax.persistence.*;
 
+// TODO use lombok
 @Entity
 public class SharesPersonalEntity {
 

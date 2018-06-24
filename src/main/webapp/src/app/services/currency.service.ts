@@ -35,7 +35,6 @@ export class CurrencyService {
   }
 
   public addToWallet(currency: Currency, amount: string) {
-    console.log(`currency.service.ts    currency = ${currency.name}, amount = ${amount}`);
     return this.http.post(`api/currencies?currencyName=${currency.name}&amount=${amount}`, null)
   }
 }

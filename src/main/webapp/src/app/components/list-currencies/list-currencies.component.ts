@@ -35,7 +35,6 @@ export class ListCurrenciesComponent implements OnInit {
   }
 
   addToWallet(currency: Currency, amount: string) {
-    console.log(`list-currencies-component.ts    currency = ${currency.name}, amount = ${amount}`);
     this.currencyService.addToWallet(currency, amount).subscribe()
   }
 

@@ -40,6 +40,10 @@ public class CurrencyService {
         return currencyConverter.convertFromEntities(currencyList);
     }
 
+    public Currency getCurrency(String name) {
+        return currencyRepository.findByName(name).get();
+    }
+
     // Problem is that API give us ban after 100 requests in hour
     public void addAllCurrencies() throws IOException {
         Iterator<String> currenciesNames = getCurrenciesNames();

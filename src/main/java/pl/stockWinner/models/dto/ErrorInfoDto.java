@@ -1,5 +1,6 @@
 package pl.stockWinner.models.dto;
 
+// TODO use lombok
 public class ErrorInfoDto {
     private String message;
 

@@ -1,5 +1,6 @@
 package pl.stockWinner.models.dto;
 
+// TODO use lombok
 public class AuthenticationResponseDto {
     private String token;
 

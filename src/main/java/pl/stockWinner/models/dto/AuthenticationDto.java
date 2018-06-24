@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
 
+// TODO use lombok
 public class AuthenticationDto {
 
     @JsonProperty("userMail")

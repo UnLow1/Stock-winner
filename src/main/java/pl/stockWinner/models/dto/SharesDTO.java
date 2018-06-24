@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+// TODO use lombok
 public class SharesDTO {
     private Long id;
 
