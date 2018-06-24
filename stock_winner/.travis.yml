@@ -1,3 +1,10 @@
 language: java
 install:
 - gradle assemble
+deploy:
+  provider: heroku
+  api_key:
+    secure: dbabf4ea-c1c2-481f-9d23-5988729a7b1f
+  app: stock-winner
+  on:
+    repo: UnLow1/Stock-winner
