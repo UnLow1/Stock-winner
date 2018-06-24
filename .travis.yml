@@ -7,3 +7,5 @@ deploy:
  api-key:
   secure: 03c7dcfe-2e4f-4fc0-921c-a4ceafc541b5
 app: stock-winner
+on:
+    repo: UnLow1/Stock-winner
