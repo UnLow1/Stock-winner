@@ -1,5 +1,4 @@
 language: java
-jdk:
-  - oraclejdk8
-script:
-  - ./stock_winner/gradlew build --scan -s
+jdk: oraclejdk8
+before_install:
+  - cd stock_winner
