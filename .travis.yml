@@ -4,6 +4,7 @@ install:
 - chmod +x gradlew
 - gradle assemble
 deploy:
+- cd stock_winner/
   provider: heroku
   api_key:
     secure: dbabf4ea-c1c2-481f-9d23-5988729a7b1f
