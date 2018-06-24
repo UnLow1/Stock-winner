@@ -1,6 +1,6 @@
 language: java
 install:
-- gradle assemble
+- gradle install
 deploy:
   provider: heroku
   api_key:
