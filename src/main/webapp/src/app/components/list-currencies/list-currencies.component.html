@@ -15,7 +15,7 @@
       <tr *ngFor="let currency of currencies | async">
         <td>{{currency.name}}</td>
         <td>{{currency.rate}}</td>
-        <td>{{currency.lastUpdate}}</td>
+        <td>{{currency.lastUpdate | date: 'dd-MM-yyyy hh:mm:ss' }}</td>
         <td>
           <button class="btn btn-success float-right" (click)="update(currency)">Update</button>
         </td>
