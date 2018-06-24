@@ -1,15 +1,16 @@
+sudo: required
+
 language: java
+
+services:
+  - docker
+  
+before_install:
+- docker build -t postgres_stockwinner .
+- docker run --name stockwinner-postgresql -d -p 5432:5432 postgres_stockwinner
+- docker ps -a
+- docker start stockwinner-postgresql
+
 install:
-#- cd stock_winner/
 - chmod +x gradlew
 - gradle assemble
-# deploy:
-# - cd stock_winner/
-# - chmod +x gradlew
-# - gradle assemble
-#   provider: heroku
-#   api_key:
-#     secure: f07de77b-58f7-47e7-9895-f4ee8a4595f7
-#   app: stock-winner
-#   on:
-#     repo: UnLow1/Stock-winner
