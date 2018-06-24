@@ -29,4 +29,8 @@ export class CurrencyService {
   public getAllCurrencies(): Observable<any> {
     return this.http.get("api/currencies/all")
   }
+
+  public updateCurrency(currency: Currency): Observable<any>{
+   return this.http.put(`api/currencies`, currency.name)
+  }
 }

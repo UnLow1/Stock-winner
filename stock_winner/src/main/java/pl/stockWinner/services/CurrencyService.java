@@ -73,6 +73,18 @@ public class CurrencyService {
         currencyToDelete.ifPresent(currency -> currencyRepository.delete(currency));
     }
 
+
+    public void updateCurrency(String name) throws IOException {
+        double rate = getRateForCurrency(name);
+
+        Currency currency = currencyRepository.findByName(name).get();
+
+        currency.setRate(rate);
+        currency.setLastUpdate(new Timestamp(System.currentTimeMillis()));
+
+        currencyRepository.save(currency);
+    }
+
     private Iterator<String> getCurrenciesNames() throws IOException {
         JSONObject response;
         response = readResponseFromApi("https://free.currencyconverterapi.com/api/v5/currencies").getJSONObject("results");

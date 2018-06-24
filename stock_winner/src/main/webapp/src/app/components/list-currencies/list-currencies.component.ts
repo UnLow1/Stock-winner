@@ -24,6 +24,12 @@ export class ListCurrenciesComponent implements OnInit {
       this.currencies = this.currencyService.getCurrencies());
   }
 
+  update(currency: Currency) {
+    this.currencyService.updateCurrency(currency).subscribe(() =>
+      // TODO refresh page after currency deletion
+      this.currencies = this.currencyService.getCurrencies());
+  }
+
   getAllCurrencies() {
     this.currencies = this.currencyService.getAllCurrencies()
   }

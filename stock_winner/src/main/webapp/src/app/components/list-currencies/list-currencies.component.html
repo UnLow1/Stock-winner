@@ -17,7 +17,7 @@
         <td>{{currency.rate}}</td>
         <td>{{currency.lastUpdate}}</td>
         <td>
-          <button class="btn btn-success float-right" [routerLink]="['/update']">Update</button>
+          <button class="btn btn-success float-right" (click)="update(currency)">Update</button>
         </td>
         <td>
           <button class="btn btn-secondary float-right" [routerLink]="['/history']">Last month</button>

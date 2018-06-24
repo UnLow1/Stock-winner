@@ -40,8 +40,14 @@ public class CurrencyController {
     public ResponseEntity<Void> deleteCurrency(@RequestParam(value = "currencyName") String name) {
         currencyService.deleteCurrency(name);
 
-        return ResponseEntity.created(URI.create("/currencies")).build();
+        return ResponseEntity.ok().build();
     }
 
+    @PutMapping
+    public ResponseEntity<Void> updateCurrency(@RequestBody String name) throws IOException {
+        currencyService.updateCurrency(name);
+
+        return ResponseEntity.ok().build();
+    }
 
 }
