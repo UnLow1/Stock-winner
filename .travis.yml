@@ -1,6 +1,6 @@
 language: java
 install:
-- cd stock_winner/
+#- cd stock_winner/
 - chmod +x gradlew
 - gradle assemble
 # deploy:
