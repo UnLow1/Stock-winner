@@ -1,15 +1,9 @@
+install: gradle wrapper --gradle-version 4.2
 language: java
-install:
-#- cd stock_winner/
-- chmod +x gradlew
-- gradle assemble
-# deploy:
-# - cd stock_winner/
-# - chmod +x gradlew
-# - gradle assemble
-#   provider: heroku
-#   api_key:
-#     secure: f07de77b-58f7-47e7-9895-f4ee8a4595f7
-#   app: stock-winner
-#   on:
-#     repo: UnLow1/Stock-winner
+jdk:
+ - oraclejdk8
+deploy:
+ provider: heroku
+ api-key:
+  secure: f07de77b-58f7-47e7-9895-f4ee8a4595f7
+app: stock-winner
