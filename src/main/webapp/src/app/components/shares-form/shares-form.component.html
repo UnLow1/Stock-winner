@@ -11,40 +11,66 @@
             <div class="col-md-2">
               <strong>Volume</strong>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <strong>Base Price</strong>
             </div>
             <div class="col-md-2">
               <strong>Current Price</strong>
             </div>
-            <div class="col-md-3">
-              <strong>Value</strong>
+            <div class="col-md-2">
+              <strong>Base Value</strong>
+            </div>
+            <div class="col-md-2">
+              <strong>Current Value</strong>
             </div>
           </div>
         </li>
       </ul>
       <ul class="list-group">
-        <li *ngFor="let share of shares" class="list-group-item list-group-item-light">
+        <li *ngFor="let share of shares" class="list-group-item"
+            [ngClass]="{'list-group-item-danger': share.volume * share.price > share.volume * currentPrices.get(share.ticker),
+            'list-group-item-success': share.volume * share.price < share.volume * currentPrices.get(share.ticker),
+            'list-group-item-light': share.volume * currentPrices.get(share.ticker) === 0}" (dblclick)="removeShares(share)">
           <div class="row text-center">
             <div class="col-md-2">
-              {{share.ticker}}
+              {{share.ticker.toUpperCase()}}
             </div>
             <div class="col-md-2">
               {{share.volume}}
             </div>
-            <div class="col-md-3">
-              {{share.price}}$
+            <div class="col-md-2">
+              {{share.price | currency:'USD':true:'1.2-2'}}
             </div>
             <div class="col-md-2">
-              {{share.price}}$
+              {{currentPrices.get(share.ticker) | currency:'USD':true:'1.2-2'}}
             </div>
-            <div class="col-md-3">
-              {{share.volume * share.price}}$
+            <div class="col-md-2">
+              {{share.volume * share.price | currency:'USD':true:'1.2-2'}}
+            </div>
+            <div class="col-md-2">
+              {{share.volume * currentPrices.get(share.ticker) | currency:'USD':true:'1.2-2'}}
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-2">
+              <strong>Total sum</strong>
+            </div>
+            <div class="col-md-2">
+              <strong>{{totalBaseValue | currency:'USD':true:'1.2-2'}}</strong>
+            </div>
+            <div class="col-md-2">
+              <strong>{{totalCurrentValue | currency:'USD':true:'1.2-2'}}</strong>
             </div>
           </div>
         </li>
       </ul>
     </div>
-    <div class="col-md-1"></div>
+  </div>
+  <div class="col-md-1">
   </div>
 </div>

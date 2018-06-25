@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, ViewChild} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
 import {CompanyService} from "../../services/company.service";
 import {DividendsService} from "../../services/dividends.service";
@@ -7,16 +7,18 @@ import {PriceService} from "../../services/price.service"
 import {NgForm} from "@angular/forms";
 import {IDividend} from "../../model/dividend";
 import {SharesService} from "../../services/shares.service";
-import {IPrice} from "../../model/price";
-import {isNull} from "util";
+import {ChartService} from "../../services/chart.service";
+import {IChart} from "../../model/chart";
 
 @Component({
   selector: 'app-add-shares-form',
   templateUrl: './add-shares-form.component.html',
-  styleUrls: ['./add-shares-form.component.scss', './../../app.component.scss'],
+  styleUrls: ['./add-shares-form.component.scss', './../../app.component.scss']
 })
 
 export class AddSharesFormComponent implements OnInit {
+  @ViewChild('chartChild') child;
+
   exchange: string = '';
   companyName: string = '';
   industry: string = '';
@@ -25,13 +27,17 @@ export class AddSharesFormComponent implements OnInit {
   CEO: string = '';
   sector: string = '';
   dividends: IDividend[];
+  dividentsDefined: boolean = false;
   volume: number = 0;
-  // price: IPrice = {price: 0};
   price: number = 0;
+  urlLogo: string = '';
+
+  charts: IChart[] = [];
 
   constructor(private _service: AuthenticationService, private companyService: CompanyService,
               private dividendsService: DividendsService, private priceService: PriceService,
-              private sharesService: SharesService) {
+              private sharesService: SharesService,
+              private chartService: ChartService) {
   }
 
   ngOnInit() {
@@ -50,29 +56,38 @@ export class AddSharesFormComponent implements OnInit {
         }
       );
 
-    this.dividendsService.getDividends(f.value.ticker, f.controls['country'].value).subscribe((arg) => {
+    this.companyService.getCompanyLogo(f.value.ticker).subscribe(logo => {
+      this.urlLogo = logo.url;
+    });
+
+    this.dividendsService.getDividends(f.value.ticker, f.controls['dividentRange'].value).subscribe((arg) => {
+      this.dividentsDefined = true;
       this.dividends = arg;
     });
 
     this.priceService.getPrice(f.value.ticker).subscribe((arg) => {
-      console.log(arg);
       this.price = arg;
-      console.log(f.value.price);
+    });
+
+    this.chartService.getCompanyChart(f.value.ticker, f.controls['chartRange'].value).subscribe((arg) => {
+      this.charts = arg;
+      this.child.rebuild();
     });
   }
 
   addShares(f: NgForm) {
-    console.log(f.value.price);
-    console.log(this.price);
-
     this.sharesService.addShare({
       ticker: f.value.ticker,
       volume: f.value.volume,
-      price: this.price == 0 ? f.value.price : this.price,
-      date: "23.06.2018"
-    }).subscribe((arg) => {
-      // console.log(f.value.price);
+      price: this.price,
+      date: "23.06.2018" //todo change to proper date
+    }).subscribe(arg => {
+      //empty subscribe
     });
+  }
+
+  update(f: NgForm) {
+    this.price = f.value.price;
   }
 }
 

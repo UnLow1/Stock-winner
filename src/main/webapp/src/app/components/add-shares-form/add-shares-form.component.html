@@ -1,6 +1,6 @@
 <div class="stockwinner-container container">
   <div class="row p-4">
-    <div class="col-md-8">
+    <div class="col-md-7">
       <form #f="ngForm" class="p-2">
         <div class="row">
           <div class="input-group mb-3 col-md-4">
@@ -12,12 +12,12 @@
                    aria-describedby="inputGroup-ticker">
           </div>
 
-          <div class="input-group mb-3 col-md-4">
+          <div class="input-group mb-3 col-md-6">
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-divident-range">Divident Range</span>
             </div>
-            <select ngModel name="country" class="custom-select d-block" required aria-label="Default"
-                    aria-describedby="inputGroup-divident-range" >
+            <select ngModel name="dividentRange" class="custom-select d-block" required aria-label="Default"
+                    aria-describedby="inputGroup-divident-range">
               <option>Five years</option>
               <option>Two years</option>
               <option>One year</option>
@@ -28,6 +28,29 @@
             <div class="invalid-feedback">
               Please select a valid range.
             </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="input-group mb-3 col-md-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-chart-range">Chart Range</span>
+            </div>
+            <select ngModel name="chartRange" class="custom-select d-block" required aria-label="Default"
+                    aria-describedby="inputGroup-chart-range">
+              <option>Five years</option>
+              <option>Two years</option>
+              <option>One year</option>
+              <option>Six months</option>
+              <option>Three months</option>
+              <option>One month</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid range.
+            </div>
+          </div>
+          <div class="input-group mb-3 col-md-4">
           </div>
         </div>
 
@@ -54,7 +77,8 @@
 
           <label for="description" class="col-sm-3 col-form-label">Description</label>
           <div class="col-sm-9">
-            <textarea class="form-control-plaintext" type="text" id="description" rows="3" value="{{description}}"
+            <textarea class="form-control-plaintext text-justify" type="text" id="description" rows="5"
+                      value="{{description}}"
                       readonly required></textarea>
           </div>
 
@@ -85,26 +109,60 @@
             </div>
 
             <input ngModel name="price" type="text" class="form-control w-50" aria-label="Default"
-                   aria-describedby="inputGroup-price" [value]="price">
+                   aria-describedby="inputGroup-price" [value]="price" (change)="update(f)">
           </div>
         </div>
       </form>
-    </div>
-    <div class="col-md-2">
-      <button type="button" [disabled]="!f.valid" class="rbbutton" (click)="downloadData(f)">Download data</button>
 
-      <button type="button" [disabled]="!f.valid" class="addbutton" (click)="addShares(f)">Add to my wallet</button>
-    </div>
-    <div class="col-md-2">
-      <!--<h4 class="text-center">Dividends</h4>-->
-      <!--<h3 *ngIf="dividends.length == 0" class="text-center">No dividends</h3>-->
       <div>
-        <div *ngFor="let dividend of dividends">
-          <span class="border-top">Record Date: {{dividend.recordDate}}</span><br>
-          <span>Payent Date: {{dividend.paymentDate}}</span><br>
-          <span>Amount: {{dividend.amount}}$</span>
+        <h3 *ngIf="dividentsDefined && dividends.length == 0" class="text-center">No dividends</h3>
+        <ul *ngIf="dividentsDefined && dividends.length != 0" class="list-group">
+          <li *ngIf="dividentsDefined && dividends.length != 0" class="list-group-item list-group-item-dark">
+            <div class="text-center border-bottom-0">
+              <strong>Dividends</strong>
+            </div>
+          </li>
+          <li *ngIf="dividends.length != 0" class="list-group-item list-group-item-dark">
+            <div class="row text-center">
+              <div class="col-md-4">
+                <strong>Declared Date</strong>
+              </div>
+              <div class="col-md-4">
+                <strong>Record Date </strong>
+              </div>
+              <div class="col-md-4">
+                <strong>Amount</strong>
+              </div>
+            </div>
+          </li>
+          <li *ngFor="let dividend of dividends" class="list-group-item">
+            <div class="row text-center">
+              <div class="col-md-4">
+                {{dividend.declaredDate}}
+              </div>
+              <div class="col-md-4">
+                {{dividend.recordDate}}
+              </div>
+              <div class="col-md-4">
+                {{dividend.amount | currency:'USD':true:'1.2-2'}}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="row">
+        <div class="col-md-6">
+          <button type="button" [disabled]="!f.valid" class="rbbutton" (click)="downloadData(f)">Download data</button>
+          <button type="button" [disabled]="!f.valid" class="addbutton" (click)="addShares(f)">Add to my wallet</button>
+        </div>
+        <div class="col-md-6 pull-right">
+          <img [src]="urlLogo">
         </div>
       </div>
+
+      <app-chart-form #chartChild [charts]="charts"></app-chart-form>
     </div>
   </div>
 </div>
