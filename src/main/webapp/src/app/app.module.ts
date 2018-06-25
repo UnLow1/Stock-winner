@@ -22,7 +22,8 @@ import {SharesService} from "./services/shares.service";
 import {ListCurrenciesComponent} from "./components/list-currencies/list-currencies.component";
 import {CurrencyService} from "./services/currency.service";
 import {AddCurrencyComponent} from "./components/add-currency/add-currency.component";
-
+import {ChartComponent} from "./components/chart/chart.component";
+import {ChartService} from "./services/chart.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {AddCurrencyComponent} from "./components/add-currency/add-currency.compo
     AddSharesFormComponent,
     AppComponent,
     ListCurrenciesComponent,
-    AddCurrencyComponent
+    AddCurrencyComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import {AddCurrencyComponent} from "./components/add-currency/add-currency.compo
     DividendsService,
     PriceService,
     SharesService,
-    CurrencyService
+    CurrencyService,
+    ChartService
   ],
   bootstrap: [AppComponent]
 })
