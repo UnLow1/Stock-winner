@@ -5,7 +5,8 @@ import {IShare} from "../model/share";
 
 @Injectable()
 export class SharesService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getShares(): Observable<IShare[]> {
     return this.http.get('/api/shares');
@@ -20,6 +21,10 @@ export class SharesService {
     };
 
     return this.http.post('/api/shares', share, options);
+  }
+
+  removeShare(id): Observable<IShare> {
+    return this.http.delete(`/api/shares/${id}`);
   }
 }
 

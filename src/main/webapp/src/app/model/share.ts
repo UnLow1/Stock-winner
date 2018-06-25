@@ -1,4 +1,5 @@
 export interface IShare {
+  id:number,
   ticker: string;
   volume: number;
   price: number;
@@ -6,6 +7,7 @@ export interface IShare {
 }
 
 export class Share {
+  public id:number;
   public ticker: string = '';
   public volume: number = 0;
   public price: number = 0;
@@ -16,6 +18,7 @@ export class Share {
 
   public toJSON(): string {
     return JSON.stringify({
+      id : this.id,
       ticker: this.ticker,
       volume: this.volume,
       price: this.price,
