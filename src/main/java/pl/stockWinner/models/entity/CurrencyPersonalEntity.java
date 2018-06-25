@@ -18,6 +18,7 @@ public class CurrencyPersonalEntity {
     @JoinColumn(foreignKey = @ForeignKey(name = "user_id"))
     private UserEntity userEntity;
 
+    // TODO use this commented annotations
 //    @ManyToOne
 //    @JoinColumn(foreignKey = @ForeignKey(name = "currency_id"))
     @Column

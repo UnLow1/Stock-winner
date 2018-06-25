@@ -4,17 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import pl.stockWinner.models.converters.CurrencyConverter;
 import pl.stockWinner.models.dto.CurrencyDto;
 import pl.stockWinner.models.dto.CurrencyPersonalDto;
-import pl.stockWinner.models.entity.CurrencyPersonalEntity;
 import pl.stockWinner.models.entity.UserEntity;
 import pl.stockWinner.repositories.UserDataRepository;
 import pl.stockWinner.services.CurrencyPersonalService;
 import pl.stockWinner.services.CurrencyService;
 
 import java.io.IOException;
-import java.net.URI;
 import java.util.Collection;
 
 @RestController
@@ -29,9 +26,6 @@ public class CurrencyController {
 
     @Autowired
     private UserDataRepository userDataRepository;
-
-    @Autowired
-    private CurrencyConverter currencyConverter;
 
     @GetMapping(value = "/all")
     public ResponseEntity<Collection<CurrencyDto>> addAllCurrencies() throws IOException {
@@ -60,7 +54,7 @@ public class CurrencyController {
         currencyPersonalService.create(currencyService.getCurrency(name), amount, getUserEntity());
 
         // TODO fix this
-        return ResponseEntity.created(URI.create("/my_shares")).build();
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping(params = {"currencyName"})

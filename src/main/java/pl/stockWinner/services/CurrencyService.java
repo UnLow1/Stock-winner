@@ -97,6 +97,13 @@ public class CurrencyService {
     }
 
     public void addCurrency(String name) throws IOException {
+
+//        Optional<Currency> currency = currencyRepository.findByName(name);
+//
+//        if (currency.isPresent()) {
+//
+//        }
+
         double rate = getRateForCurrency(name);
 
         CurrencyDto currencyDto = new CurrencyDto(name, rate, new Timestamp(System.currentTimeMillis()));
@@ -106,9 +113,10 @@ public class CurrencyService {
     }
 
     public void deleteCurrency(String name) {
-        Optional<Currency> currencyToDelete = currencyRepository.findByName(name);
+        // TODO it should be deleted one currency and validation should be in adding currency
+        List<Currency> currencyToDelete = currencyRepository.findAllByName(name);
 
-        currencyToDelete.ifPresent(currency -> currencyRepository.delete(currency));
+        currencyToDelete.forEach(currency -> currencyRepository.delete(currency));
     }
 
 

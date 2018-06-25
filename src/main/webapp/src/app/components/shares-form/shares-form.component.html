@@ -30,7 +30,8 @@
         <li *ngFor="let share of shares" class="list-group-item"
             [ngClass]="{'list-group-item-danger': share.volume * share.price > share.volume * currentPrices.get(share.ticker),
             'list-group-item-success': share.volume * share.price < share.volume * currentPrices.get(share.ticker),
-            'list-group-item-light': share.volume * currentPrices.get(share.ticker) === 0}" (dblclick)="removeShares(share)">
+            'list-group-item-light': share.volume * currentPrices.get(share.ticker) === 0}"
+            (dblclick)="removeShares(share)">
           <div class="row text-center">
             <div class="col-md-2">
               {{share.ticker.toUpperCase()}}
@@ -70,7 +71,5 @@
         </li>
       </ul>
     </div>
-  </div>
-  <div class="col-md-1">
   </div>
 </div>
