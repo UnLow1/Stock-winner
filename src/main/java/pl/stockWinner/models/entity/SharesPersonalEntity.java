@@ -33,4 +33,13 @@ public class SharesPersonalEntity {
     public void setSharesEntity(SharesEntity sharesEntity) {
         this.sharesEntity = sharesEntity;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public SharesPersonalEntity setId(long id) {
+        this.id = id;
+        return this;
+    }
 }

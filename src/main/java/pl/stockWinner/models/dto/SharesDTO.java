@@ -64,4 +64,13 @@ public class SharesDTO {
         this.date = date;
         return this;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public SharesDTO setId(Long id) {
+        this.id = id;
+        return this;
+    }
 }

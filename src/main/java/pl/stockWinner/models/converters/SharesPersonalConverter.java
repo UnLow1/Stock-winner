@@ -13,6 +13,7 @@ public class SharesPersonalConverter implements BaseConverter<SharesPersonalEnti
     @Override
     public SharesDTO convertFromEntity(SharesPersonalEntity entity) {
         return new SharesDTO()
+                .setId(entity.getId())
                 .setTicker(entity.getSharesEntity().getTicker())
                 .setVolume(entity.getSharesEntity().getVolume())
                 .setPrice(entity.getSharesEntity().getPrice())
@@ -30,8 +31,7 @@ public class SharesPersonalConverter implements BaseConverter<SharesPersonalEnti
                 .setPrice(sharesDTO.getPrice())
                 .setDate(sharesDTO.getDate());
 
-        // TODO is it correct?
-        return new SharesPersonalEntity();
+        return sharesPersonalEntity;
     }
 
     @Override
