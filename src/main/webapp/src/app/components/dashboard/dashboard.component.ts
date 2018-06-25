@@ -20,12 +20,6 @@ export class DashboardComponent implements OnInit {
     this.getCurrenciesForUser();
   }
 
-
-  logout() {
-    this._service.logout();
-  }
-
-
   getCurrenciesForUser() {
     this.currencyService.getCurrenciesForUser().subscribe(currencies => this.currencies = currencies);
   }

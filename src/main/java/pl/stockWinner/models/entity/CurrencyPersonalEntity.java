@@ -20,6 +20,7 @@ public class CurrencyPersonalEntity {
 
 //    @ManyToOne
 //    @JoinColumn(foreignKey = @ForeignKey(name = "currency_id"))
+    @Column
     private long currencyEntityId;
 
     @Column

@@ -14,6 +14,7 @@ import pl.stockWinner.services.CurrencyPersonalService;
 import pl.stockWinner.services.CurrencyService;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.Collection;
 
 @RestController
@@ -59,7 +60,7 @@ public class CurrencyController {
         currencyPersonalService.create(currencyService.getCurrency(name), amount, getUserEntity());
 
         // TODO fix this
-        return ResponseEntity.ok().build();
+        return ResponseEntity.created(URI.create("/my_shares")).build();
     }
 
     @PostMapping(params = {"currencyName"})
