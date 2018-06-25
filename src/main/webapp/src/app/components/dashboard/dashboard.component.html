@@ -25,10 +25,10 @@
               <div class="col-md-2">
                 <strong>Currency name</strong>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <strong>Currency rate</strong>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <strong>Amount</strong>
               </div>
               <!--<div class="col-md-2">-->
@@ -37,7 +37,7 @@
               <!--<div class="col-md-2">-->
                 <!--<strong>Current rate</strong>-->
               <!--</div>-->
-              <div class="col-md-2">
+              <div class="col-md-4">
                 <strong>Value</strong>
               </div>
             </div>
@@ -49,11 +49,11 @@
               <div class="col-md-2">
                 {{currency.name}}
               </div>
-              <div class="col-md-2">
-                {{currency.rate}}
+              <div class="col-md-3">
+                {{currency.rate | number : '1.2-4'}}
               </div>
-              <div class="col-md-2">
-                {{currency.amount}}
+              <div class="col-md-3">
+                {{currency.amount | number : '1.2-4'}}
               </div>
               <!--<div class="col-md-2">-->
                 <!--{{currency.base_price}}-->
@@ -61,8 +61,8 @@
               <!--<div class="col-md-2">-->
                 <!--{{currency.current_price}}-->
               <!--</div>-->
-              <div class="col-md-2">
-                {{currency.value}}
+              <div class="col-md-4">
+                {{currency.value | number : '1.2-4'}}
               </div>
             </div>
           </li>

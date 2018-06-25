@@ -15,7 +15,7 @@
       <tbody>
       <tr *ngFor="let currency of currencies | async">
         <td>{{currency.name}}</td>
-        <td>{{currency.rate}}</td>
+        <td>{{currency.rate | number : '1.2-4'}}</td>
         <td>{{currency.lastUpdate | date: 'dd-MM-yyyy hh:mm:ss' }}</td>
         <td>
           <!--<input formControlName="amount" type="number" class="form-control" id="amount" value="0">-->

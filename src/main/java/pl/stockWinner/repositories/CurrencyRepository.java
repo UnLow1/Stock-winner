@@ -10,6 +10,4 @@ public interface CurrencyRepository extends JpaRepository<Currency, Long> {
     List<Currency> findAll();
 
     Optional<Currency> findByName(String name);
-
-    List<Currency> findAllByName(String name);
 }
