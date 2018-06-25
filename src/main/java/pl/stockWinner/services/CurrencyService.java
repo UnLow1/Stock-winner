@@ -5,8 +5,13 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.stockWinner.models.converters.CurrencyConverter;
+import pl.stockWinner.models.converters.CurrencyPersonalConverter;
 import pl.stockWinner.models.dto.CurrencyDto;
+import pl.stockWinner.models.dto.CurrencyPersonalDto;
 import pl.stockWinner.models.entity.Currency;
+import pl.stockWinner.models.entity.CurrencyPersonalEntity;
+import pl.stockWinner.models.entity.UserEntity;
+import pl.stockWinner.repositories.CurrencyPersonalRepository;
 import pl.stockWinner.repositories.CurrencyRepository;
 
 import java.io.BufferedReader;
@@ -34,10 +39,24 @@ public class CurrencyService {
     @Autowired
     private CurrencyConverter currencyConverter;
 
+    @Autowired
+    private CurrencyPersonalRepository currencyPersonalRepository;
+
+    @Autowired
+    private CurrencyPersonalConverter currencyPersonalConverter;
+
     public Collection<CurrencyDto> getCurrencies() {
         List<Currency> currencyList = currencyRepository.findAll();
 
         return currencyConverter.convertFromEntities(currencyList);
+    }
+
+    public Collection<CurrencyPersonalDto> getCurrenciesForUser(UserEntity userEntity) {
+//        List<CurrencyPersonalEntity> currencyList = currencyPersonalRepository.findAllByUserEntity(userEntity);
+
+//        return currencyPersonalConverter.convertFromEntities(currencyList);
+        return currencyPersonalConverter.convertFromEntities(
+                currencyPersonalRepository.findAllByUserEntity(userEntity));
     }
 
     public Currency getCurrency(String name) {

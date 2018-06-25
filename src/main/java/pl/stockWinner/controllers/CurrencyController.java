@@ -6,6 +6,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import pl.stockWinner.models.converters.CurrencyConverter;
 import pl.stockWinner.models.dto.CurrencyDto;
+import pl.stockWinner.models.dto.CurrencyPersonalDto;
+import pl.stockWinner.models.entity.CurrencyPersonalEntity;
 import pl.stockWinner.models.entity.UserEntity;
 import pl.stockWinner.repositories.UserDataRepository;
 import pl.stockWinner.services.CurrencyPersonalService;
@@ -37,6 +39,14 @@ public class CurrencyController {
         return ResponseEntity.ok(currencyService.getCurrencies());
     }
 
+    @GetMapping(value = "/forUser")
+    public ResponseEntity<Collection<CurrencyPersonalDto>> getCurrenciesForUser() {
+//        currencyService.getCurrenciesForUser(getUserEntity());
+
+        // TODO fix this
+        return ResponseEntity.ok(currencyService.getCurrenciesForUser(getUserEntity()));
+    }
+
     @GetMapping
     public ResponseEntity<Collection<CurrencyDto>> getCurrencies() {
         return ResponseEntity.ok(currencyService.getCurrencies());
@@ -48,6 +58,7 @@ public class CurrencyController {
 
         currencyPersonalService.create(currencyService.getCurrency(name), amount, getUserEntity());
 
+        // TODO fix this
         return ResponseEntity.ok().build();
     }
 

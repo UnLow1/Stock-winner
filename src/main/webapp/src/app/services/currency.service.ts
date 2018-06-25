@@ -37,4 +37,8 @@ export class CurrencyService {
   public addToWallet(currency: Currency, amount: string) {
     return this.http.post(`api/currencies?currencyName=${currency.name}&amount=${amount}`, null)
   }
+
+  public getCurrenciesForUser(): Observable<any> {
+    return this.http.get(`api/currencies/forUser`)
+  }
 }

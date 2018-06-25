@@ -1,3 +1,75 @@
 <div class="stockwinner-container container">
+
+  <br>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Shares</h2>
+    </div>
+  </div>
+
   <app-shares-form></app-shares-form>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Currencies</h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-12 align-content-center p-5 text-center">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-dark">
+            <div class="row text-center">
+              <div class="col-md-2">
+                <strong>Currency name</strong>
+              </div>
+              <div class="col-md-2">
+                <strong>Currency rate</strong>
+              </div>
+              <div class="col-md-2">
+                <strong>Amount</strong>
+              </div>
+              <div class="col-md-2">
+                <strong>Base Price</strong>
+              </div>
+              <div class="col-md-2">
+                <strong>Current rate</strong>
+              </div>
+              <div class="col-md-2">
+                <strong>Value</strong>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="list-group">
+          <li *ngFor="let currency of currencies" class="list-group-item list-group-item-light">
+            <div class="row text-center">
+              <div class="col-md-2">
+                {{currency.name}}
+              </div>
+              <div class="col-md-2">
+                {{currency.rate}}
+              </div>
+              <div class="col-md-2">
+                {{currency.amount}}
+              </div>
+              <div class="col-md-2">
+                {{currency.base_price}}
+              </div>
+              <div class="col-md-2">
+                {{currency.current_price}}
+              </div>
+              <div class="col-md-2">
+                {{currency.value}}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+
 </div>

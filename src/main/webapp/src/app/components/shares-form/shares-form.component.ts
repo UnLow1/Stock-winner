@@ -26,5 +26,4 @@ export class SharesFormComponent implements OnInit {
       this.shares = shares;
     });
   }
-
 }
